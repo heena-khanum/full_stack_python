@@ -1,0 +1,65 @@
+program for palindrome :- 
+def is_palindrome(x):
+    # Negative numbers are not palindromes
+    if x < 0:
+        return False
+    
+    # Store the original number to compare later
+    original = x
+    reversed_num = 0
+    
+    # Reverse the digits of the number
+    while x != 0:
+        digit = x % 10
+        reversed_num = reversed_num * 10 + digit
+        x = x // 10
+    
+    # Check if the reversed number is the same as the original
+    return original == reversed_num
+
+# Test cases
+print(is_palindrome(121))  # Output: True
+print(is_palindrome(-121)) # Output: False
+print(is_palindrome(10))   # Output: False
+
+
+program for reversing an integer :-
+
+#with typecasting
+def reverse(num):
+    r=str(num) #explicit conversion
+    return r[::-1]
+
+#without typecasting
+def reverse(num):
+    result = 0
+    while num != 0:
+        rem = num % 10   
+        result = result * 10 + rem 
+        num = num // 10 
+    return result
+
+
+num = 235
+print(reverse(num)) 
+
+program for valid anagram:-
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        count = defaultdict(int)
+        
+        # Count the frequency of characters in string s
+        for x in s:
+            count[x] += 1
+        
+        # Decrement the frequency of characters in string t
+        for x in t:
+            count[x] -= 1
+        
+        # Check if any character has non-zero frequency
+        for val in count.values():
+            if val != 0:
+                return False
+        
+        return True
